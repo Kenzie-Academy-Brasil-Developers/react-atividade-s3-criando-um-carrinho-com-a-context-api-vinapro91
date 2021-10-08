@@ -2,10 +2,9 @@ import Button from "../button";
 
 import { useContext } from "react";
 
-import { CatalogueContext } from "../../providers";
-
 import { Container, List } from "./styles";
 import { CartContext } from "../../providers/cart";
+import { CatalogueContext } from "../../providers/catalogue";
 
 const ProductList = ({ type }) => {
   // type determinará se nosso componente será do tipo "catalogue" ou "cart"

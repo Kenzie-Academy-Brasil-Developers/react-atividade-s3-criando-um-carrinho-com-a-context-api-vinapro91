@@ -1,30 +1,11 @@
-import { createContext, useState } from "react";
+import { CatalogueProvider } from "./catalogue";
+import { CartProvider } from "./cart";
 
-export const CatalogueContext = createContext([]);
-
-export const CatalogueProvider = ({ children }) => {
-  const [catalogue, setCatalogue] = useState([
-    { name: "Book", price: 20 },
-    { name: "T-shirt", price: 50 },
-    { name: "Banana", price: 3 },
-  ]);
-
-  const addToCatalogue = (item) => {
-    setCatalogue([...catalogue, item]);
-  };
-
-  const removeFromCatalogue = (item) => {
-    const newCatalogue = catalogue.filter(
-      (itemOnCatalogue) => itemOnCatalogue.name !== item.name
-    );
-    setCatalogue(newCatalogue);
-  };
-
+const Provider = ({ children }) => {
   return (
-    <CatalogueContext.Provider
-      value={{ catalogue, addToCatalogue, removeFromCatalogue }}
-    >
-      {children}
-    </CatalogueContext.Provider>
+    <CatalogueProvider>
+      <CartProvider>{children}</CartProvider>
+    </CatalogueProvider>
   );
 };
+export default Provider;

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CatalogueContext } from "../../providers";
+import { CatalogueContext } from "../../providers/catalogue";
 import { CartContext } from "../../providers/cart";
 import { ButtonStyled } from "./styles";
 
